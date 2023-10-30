@@ -2,18 +2,65 @@
 This project attempts a mobile-first approach to the UI
 */
 
-.content {
-    background-color: black;
-    width: 100px; height: 100px;
+html {
+    padding: 0; margin: 0;
+}
+body {
+    padding: 0; margin: 0;
+}
 
-    display: block;
+section, footer {
+    padding-top: 10px; padding-bottom: 10px;
+}
+
+.content {
+    padding: 0; margin: 0;
+    background-color: black;
+    width: auto;
+}
+
+nav {
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    /* padding:10px; */
+
+    background-color: rgb(187, 94, 27);
+    z-index: 1; position: relative;
+}
+
+nav ul {
+    list-style: none;
+    display: inline-flex;
+}
+
+nav ul li {
+    padding: 10px;
+}
+
+nav ul li:hover {
+    background: black;
+    color: white;
+}
+
+:where(nav) a {
+    text-decoration: none;
+}
+
+.nav-container {
+    margin-left:auto; padding: 0px 10px; margin-right: 10px;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    align-items: center; justify-content: center;
 }
 
 /* // Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
     .content {
         background-color: gray;
-        width: 100px; height: 100px;
     }
 }
 
@@ -21,7 +68,6 @@ This project attempts a mobile-first approach to the UI
 @media (min-width: 768px) {
     .content {
         background-color: red;
-        width: 100px; height: 100px;
     }
 }
 
@@ -29,7 +75,6 @@ This project attempts a mobile-first approach to the UI
 @media (min-width: 992px) {
     .content {
         background-color: blue;
-        width: 100px; height: 100px;
     }
 }
 
@@ -37,6 +82,5 @@ This project attempts a mobile-first approach to the UI
 @media (min-width: 1200px) {
     .content {
         background-color: orange;
-        width: 100px; height: 100px;
     }
 }
