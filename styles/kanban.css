@@ -19,7 +19,7 @@ header {
     background-color: gray;
     border-radius: 25px 0px 25px 25px;
     color: white;
-    padding:10px;
+    padding:var(--padding-default);
 }
 
 :has(.button) .cta:last-child {
@@ -37,7 +37,7 @@ header {
 }
 
 :where(.cta-container) .tools {
-    margin-left: 10px;
+    margin-left: var(--margin-default);
 }
 
 :where(.cta-container) .saving {
@@ -54,6 +54,8 @@ header {
 
     height: 100vh; max-width: 100%;
     overflow-x: auto; overflow-y: hidden;
+
+    scroll-behavior:smooth;
 }
 
 .card-container::-webkit-scrollbar {
@@ -70,26 +72,70 @@ header {
 
 .card {
     display: block;
-    width:clamp(100px, 256px, 256px);
-    background-color: gray; color:white;
-    margin: 10px;
+    width: clamp(100px, 256px, 256px);
+    color:white;
+    margin: var(--margin-default);
+
+    transition-duration: 0.2s;
+}
+
+.card:is(.created) {
+    background: rgb(4, 255, 0);
+    filter: drop-shadow(0px 0px 16px rgb(53, 173, 51));
+    animation-name: created;
+    animation-duration: 0.2s;
+}
+
+@keyframes created {
+    from {width:0px;}
+    to {width:256px;}
+}
+
+.card:is(.deleted) {
+    background: rgb(255, 0, 0);
+    filter: drop-shadow(0px 0px 16px rgba(236, 19, 19, 1));
+    animation-name: deleted;
+    animation-duration: 0.5s;
+}
+
+@keyframes deleted {
+    from {}
+    to {width:0px;}
 }
 
 .card-header {
     display: flex;
     align-items: center;
     background-color: lightblue;
-    padding:10px;
+    padding:var(--padding-default);
+
+    animation-name: spawn;
+    animation-duration: 1s;
 }
 
 :is([data-roki-card-title]) .card-body  {
     background-color: beige;
-    width: clamp(100px, 256px, 256px); height: calc(100% - 128px); min-height: 256px; 
+    width: clamp(100px, 256px, 256px);
+    /* min-width: 100px; max-width: 256px; */
+    min-height: 256px; height: calc(100% - 128px);
     background-color: lemonchiffon;
-    overflow-y: auto;
+    overflow-y: auto; overflow-x: hidden;
     resize: vertical;
 
+    display: flex;
+    align-items: center; justify-content: start;
+    flex-direction: column;
+    flex-grow: 1;
+
+    animation-name: spawn;
+    animation-duration: 1s;
+
     scrollbar-track-color: black;
+}
+
+@keyframes spawn {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
 .card-body::-webkit-scrollbar {
@@ -101,7 +147,15 @@ header {
 }
 
 .card-body::-webkit-scrollbar-thumb {
-    background: rgb(126, 96, 57)
+    background: rgb(126, 96, 57);
+    border-radius: 25px;
+}
+
+:is([data-roki-card-title]) .cta {
+    background:rgba(0,0,0,0.1) !important;
+    border: 4px dashed gray;
+    width: calc(100% - 10px);
+    margin-top: auto; margin-bottom: var(--margin-default);
 }
 
 
@@ -112,15 +166,21 @@ header {
 
 .card-item {
     background-color:lightcoral; color:black;
-    margin:10px; padding: 10px;
+    margin: var(--margin-default); padding: var(--padding-default);
     border-radius: 8px;
-    height: clamp(1.2rem, auto, auto);
+    height: clamp(1.2rem, auto, auto); max-width: calc(100% - 20px * 2); width: calc(100% - 10px);
     text-wrap: wrap;
 }
 
 .card-item-cta {
     display: flex;
     justify-content: end;
+}
+
+#btn_addCard {
+    border: 1px dashed black; border-radius: 25px;
+    padding: var(--padding-default); margin: var(--margin-default);
+    /* align-self: start; */
 }
 
 /* Modals */
@@ -154,14 +214,14 @@ header {
     display: flex;
     align-items: center;
 
-    padding: 10px;
+    padding: var(--padding-default);
 }
 
 .modal-header button {
-    margin-left:auto; margin-right: 10px;
+    margin-left:auto; margin-right: var(--margin-default);
     font-size: 1.5rem;
 }
 
 .modal-body {
-    padding: 10px;
+    padding: var(--padding-default);
 }

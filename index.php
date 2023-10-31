@@ -53,7 +53,7 @@ require_once("blocks/NavBar.php");
             </div>
             <div class="cta-container">
                 <div class="tools">
-                    <button class="button cta">Add Card</button>
+                    
                 </div>
                 <div class="saving">
                     <button class="button cta"><i class="fa-solid fa-door-open"></i>&nbsp;Back</button>
@@ -63,7 +63,7 @@ require_once("blocks/NavBar.php");
         </header>
 
         <section class="card-container">
-            <div class="card" data-roki-card-title="Title 2">
+            <div class="card" data-roki-card-title="Title 2" draggable="true">
                 <div class="card-header">
                     <div class="card-details">
                         <h2 class="card-title">Title Here</h2>
@@ -80,8 +80,17 @@ require_once("blocks/NavBar.php");
                         </div>
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                     </div>
+                    <div class="card-item" data-roki-pop="#someModal" draggable="true">
+                        <div class="card-item-cta">
+                            <button class="button"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    item test
+                    </div>
+
+                    <button class="button cta">Add Item</button>
                 </div>
             </div>
+            <button class="button" id="btn_addCard"><i class="fa-solid fa-circle-plus"></i></button>
         </section>
 
         <footer>
@@ -89,7 +98,7 @@ require_once("blocks/NavBar.php");
         </footer>
     </div>
 
-    <script src="scripts/index.js"></script>
+    <script type="module" src="scripts/index.js"></script>
 </body>
 
 </html>

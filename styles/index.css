@@ -2,6 +2,11 @@
 This project attempts a mobile-first approach to the UI
 */
 
+:root {
+    --margin-default: 10px;
+    --padding-default: 10px;
+}
+
 html {
     padding: 0; margin: 0;
 }
