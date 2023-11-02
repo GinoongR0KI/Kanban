@@ -1,30 +1,50 @@
 export class CardHeader {
-    constructor (cardTitle, cardIndex) {
-        // Card Details
-        let card_details = this.createDetails(cardTitle);
-        // Card CTA
-        let card_cta = this.createCTA('[data-roki-card-title="'+cardIndex+'"]');
+    headerDetails;
+    headerCTA;
 
+    constructor (cardTitle, cardIndex) {
         // Container
         let container = Object.assign(document.createElement("div"), {
             classList: 'card-header'
         });
+
+        // Card Details
+        let card_details = this.createDetails(cardTitle);
+        this.headerDetails = card_details;
+        // Card CTA
+        let card_cta = this.createCTA('[data-roki-card-title="'+cardIndex+'"]');
+        this.headerCTA = card_cta;
+
+        console.log(this.headerDetails, this.headerCTA);
+
         container.appendChild(card_details)
         container.appendChild(card_cta);
 
         return container;
     }
 
+    // Getters
+    getDetails() {
+        return this.headerDetails;
+    }
+
+    getCTA() {
+        return this.headerCTA;
+    }
+
+    // Custom Functions
+
     createDetails(cardTitle) {
+        // Container
+        let container = Object.assign(document.createElement("div"), {
+            classList: 'card-details'
+        });
+        // Card Title
         let card_title = Object.assign(document.createElement("h2"), {
             classList: "card-title",
             innerText: cardTitle
         });
 
-        // Container
-        let container = Object.assign(document.createElement("div"), {
-            classList: 'card-details'
-        });
         container.appendChild(card_title);
 
         return container;

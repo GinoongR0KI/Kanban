@@ -14,11 +14,12 @@ export class Card {
     // Functions
     /*  Card Parts:
         Main Card Container
-        Card Header
-            Card Details
-            Card CTA
-        Card Body
-            Card Items
+            Card Wrapper
+                Card Header
+                    Card Details
+                    Card CTA
+                Card Body
+                    Card Items
     */
 
     add(cardTitle) {
@@ -41,11 +42,17 @@ export class Card {
             draggable: true
         });
         card.appendChild(card_wrapper);
+        // card_header.headerDetails.childNodes[0].style.width = card.offsetWidth;
 
         card_wrapper.addEventListener("animationend", () => {
             card_wrapper.classList.remove("created");
             card_wrapper.appendChild(card_header);
             card_wrapper.appendChild(card_body);
+
+            console.log(card_header.childNodes[0].style.width = card_body.offsetWidth - 100 + "px", card_body.offsetWidth);
+
+            card_body.style.maxHeight = (card.offsetHeight - card_header.offsetHeight) + "px";
+            console.log(card.offsetHeight, card_header.offsetHeight, card_body.style.maxHeight, (container.offsetHeight - card_header.offsetHeight));
 
             container.scrollTo(container.scrollWidth, container.scrollY);
         }, {once: true});

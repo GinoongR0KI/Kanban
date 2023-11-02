@@ -1,14 +1,19 @@
+nav {
+    background: var(--bg-color-minimal) !important;
+}
+
 header {
     width: 100%;
     display: flex;
     align-items: center;
 
-    background-color: chocolate;
+    background-color: var(--color-30);
     box-shadow: 0px 4px 16px rgba(0,0,0,0.4);
 }
 
 .button {
     background:none; border: none;
+    color: var(--bg-color-light);
 }
 
 .button:hover {
@@ -16,38 +21,52 @@ header {
 }
 
 :has(.button) .cta {
-    background-color: gray;
+    background-color: var(--color-10);
     border-radius: 25px 0px 25px 25px;
     color: white;
     padding:var(--padding-default);
 }
 
 :has(.button) .cta:last-child {
-    background-color:rgb(78, 127, 78);
+    background-color:var(--color-10);
+}
+
+#Project-Controls {
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
 .project-details-container {
     display: flex;
 }
 
-.cta-container {
-    display: flex;
-    align-items: center;
-    column-gap: 10px;
-}
-
-:where(.cta-container) .tools {
+#project-title {
+    color: var(--bg-color-light);
     margin-left: var(--margin-default);
 }
 
-:where(.cta-container) .saving {
-    margin-left: auto;
+.cta-container {
+    display: flex; align-items: center; justify-content: end;
+    column-gap: 10px;
 }
+
+.cta-container:last-child {
+    margin-right: var(--margin-default);
+}
+
+/* :where(.cta-container) .tools {
+    margin-left: var(--margin-default);
+} */
+
+/* :where(.cta-container) .saving {
+    display: flex;
+    align-items: center; justify-content: end;
+} */
 
 /* Cards */
 
 .card-container {
-    background-color: rgb(97, 61, 61);
+    background-color: var(--bg-color-light);
 
     display: flex;
     flex-direction: row;
@@ -63,11 +82,12 @@ header {
 }
 
 .card-container::-webkit-scrollbar-track {
-    background: rgba(0,0,0,0.1);
+    background: var(--bg-color-light-container);
 }
 
 .card-container::-webkit-scrollbar-thumb {
-    background: rgb(126, 96, 57)
+    background: var(--color-30-1);
+    border-radius: 25px;
 }
 
 .card {
@@ -85,7 +105,7 @@ header {
 }
 
 .card-wrapper {
-    background-color: gray;
+    /* background-color: gray; */
     
     display: flex;
     flex-direction: column;
@@ -98,7 +118,7 @@ header {
     animation-name: created;
     animation-duration: 0.2s;
 
-    width: 256px;
+    width: 256px; height: calc(256px + 100px);
 }
 
 @keyframes created {
@@ -139,29 +159,33 @@ header {
 .card-header {
     display: flex;
     align-items: center;
-    background-color: lightblue;
+    background-color: var(--color-30);
     padding:var(--padding-default);
 
     flex-wrap: wrap;
 
-    animation-name: spawn;
-    animation-duration: 1s;
-
     position: relative;
+
+    /* max-height: 4rem; */
 }
 
 .card-title {
-    text-wrap: wrap;
+    /* text-wrap: wrap; */
     /* overflow-wrap: break-word; */
-    word-break: break-all;
+    /* word-break: break-all; */
+    /* width:256px; */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 :is([data-roki-card-title]) .card-body  {
     background-color: beige;
-    width: clamp(100px, 256px, 256px);
+    /* width: clamp(100px, 256px, 256px); */
+    width: 256px;
     /* min-width: 100px; max-width: 256px; */
     min-height: 256px; height: calc(100% - 128px);
-    background-color: lemonchiffon;
+    background-color: var(--bg-color-light-container);
     overflow-y: auto; overflow-x: hidden;
     resize: vertical;
 
@@ -170,15 +194,9 @@ header {
     flex-direction: column;
     flex-grow: 1;
 
-    animation-name: spawn;
-    animation-duration: 1s;
+    scroll-behavior: smooth;
 
     scrollbar-track-color: black;
-}
-
-@keyframes spawn {
-    from {opacity: 0;}
-    to {opacity: 1;}
 }
 
 .card-body::-webkit-scrollbar {
@@ -186,19 +204,27 @@ header {
 }
 
 .card-body::-webkit-scrollbar-track {
-    background: rgba(0,0,0,0.1);
+    background: var(--bg-color-light-container);
+}
+
+.card-body::-webkit-scrollbar-corner {
+    background: var(--bg-color-light-container);
 }
 
 .card-body::-webkit-scrollbar-thumb {
-    background: rgb(126, 96, 57);
+    background: var(--color-30-1);
     border-radius: 25px;
 }
 
 :is([data-roki-card-title]) .cta {
-    background:rgba(0,0,0,0.1) !important;
-    border: 4px dashed gray;
+    background: var(--color-10) !important;
+    /* border: 4px dashed var(--color-10); */
     width: calc(100% - 10px);
     margin-top: auto; margin-bottom: var(--margin-default);
+}
+
+:is([data-roki-card-title]) .cta:hover {
+    filter: drop-shadow(0px 0px 16px var(--color-30));
 }
 
 
@@ -208,7 +234,7 @@ header {
 }
 
 .card-item {
-    background-color:lightcoral; color:black;
+    background-color:var(--color-30-1); color:black;
     margin: var(--margin-default); padding: var(--padding-default);
     border-radius: 8px;
     height: clamp(1.2rem, auto, auto); max-width: calc(100% - 20px * 2); width: calc(100% - 10px);
@@ -223,9 +249,10 @@ header {
 #btn_addCard {
     border: 1px dashed black; border-radius: 25px;
     padding: var(--padding-default); margin: var(--margin-default);
+    color: var(--bg-color-dark);
     
     /* align-self: start; */
-    height:50%;
+    min-width: 256px; font-size: 5rem;
 }
 
 /* Modals */

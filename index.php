@@ -15,6 +15,10 @@ require_once("blocks/NavBar.php");
     <link rel="shortcut icon" href="" type="image/x-icon" /> <?php // Site Logo ?>
     <link rel="stylesheet" href="./styles/index.css" /> <?php // Main Cross-Page style ?>
     <link rel="stylesheet" href="./styles/kanban.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
     <?php // Scripts ?>
     <script src="https://kit.fontawesome.com/2a10a7ed51.js" crossorigin="anonymous"></script> <?php // Font Awesome ?>
 </head>
@@ -35,7 +39,7 @@ require_once("blocks/NavBar.php");
     </div>
 
     <div class="content">
-        <nav>
+        <!-- <nav>
             <div class="logo-container">
                 <img src="logo.png" alt="Kanban Logo" />
             </div>
@@ -44,26 +48,21 @@ require_once("blocks/NavBar.php");
                     $nav = new NavBar(["Home"=>"#", "About"=>"About.php", "Projects"=>"Projects.php", "Logout"=>"#"]);
                 ?>
             </div>
-        </nav>
+        </nav> -->
 
-        <header>
+        <header id="Project-Controls">
             <div class="project-details-container">
-                <h1>Project Title</h1>
+                <h1 id="project-title">Project Title</h1>
                 <button class="button"><i class="fa-regular fa-pen-to-square"></i></button>
             </div>
             <div class="cta-container">
-                <div class="tools">
-                    
-                </div>
-                <div class="saving">
-                    <button class="button cta"><i class="fa-solid fa-door-open"></i>&nbsp;Back</button>
-                    <button class="button cta"><i class="fa-solid fa-floppy-disk"></i>&nbsp;Save / Publish</button>
-                </div>
+                <button class="button cta"><i class="fa-solid fa-door-open"></i>&nbsp;Back</button>
+                <button class="button cta"><i class="fa-solid fa-floppy-disk"></i>&nbsp;Save / Publish</button>
             </div>
         </header>
 
         <section class="card-container">
-            <div class="card" data-roki-card-title="Title 2" draggable="true">
+            <!-- <div class="card" data-roki-card-title="Title 2" draggable="true">
                 <div class="card-wrapper">
 
                     <div class="card-header">
@@ -93,12 +92,17 @@ require_once("blocks/NavBar.php");
                     </div>
 
                 </div>
-            </div>
+            </div> -->
             <button class="button" id="btn_addCard"><i class="fa-solid fa-circle-plus"></i></button>
         </section>
 
         <footer>
-            Copyright
+            <div class="copyright">
+                All rights reserved 2023.
+            </div>
+            <div class="developer">
+                This web application is developed by: <a href="https://ginoongr0ki.github.io/">GinoongR0KI</a>
+            </div>
         </footer>
     </div>
 
