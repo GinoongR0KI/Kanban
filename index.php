@@ -64,30 +64,34 @@ require_once("blocks/NavBar.php");
 
         <section class="card-container">
             <div class="card" data-roki-card-title="Title 2" draggable="true">
-                <div class="card-header">
-                    <div class="card-details">
-                        <h2 class="card-title">Title Here</h2>
-                    </div>
-                    <div class="card-cta">
-                        <button class="button"><i class="fa-solid fa-gear"></i></button>
-                        <button class="button"><i class="fa-solid fa-trash"></i></button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="card-item" data-roki-pop="#someModal" draggable="true">
-                        <div class="card-item-cta">
+                <div class="card-wrapper">
+
+                    <div class="card-header">
+                        <div class="card-details">
+                            <h2 class="card-title">TestTitleForThisCardSoWeWillKnowHowEffectiveOurLineBreakingIsWhenThingsStartToOverflowInOurCardTitleSoWeKnowWeHaveAnEffectiveMar</h2>
+                        </div>
+                        <div class="card-cta">
+                            <button class="button"><i class="fa-solid fa-gear"></i></button>
                             <button class="button"><i class="fa-solid fa-trash"></i></button>
                         </div>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                     </div>
-                    <div class="card-item" data-roki-pop="#someModal" draggable="true">
-                        <div class="card-item-cta">
-                            <button class="button"><i class="fa-solid fa-trash"></i></button>
+                    <div class="card-body">
+                        <div class="card-item" data-roki-pop="#someModal" draggable="true">
+                            <div class="card-item-cta">
+                                <button class="button"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                         </div>
-                    item test
+                        <div class="card-item" data-roki-pop="#someModal" draggable="true">
+                            <div class="card-item-cta">
+                                <button class="button"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        item test
+                        </div>
+
+                        <button class="button cta">Add Item</button>
                     </div>
 
-                    <button class="button cta">Add Item</button>
                 </div>
             </div>
             <button class="button" id="btn_addCard"><i class="fa-solid fa-circle-plus"></i></button>

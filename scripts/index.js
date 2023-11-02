@@ -9,7 +9,6 @@ btn_addCard.addEventListener("click", () => {
     console.log(card.object);
     let container = document.querySelector(".card-container");
     let insertedElement = container.insertBefore(card.object, btn_addCard);
-    container.scrollTo(container.scrollWidth, container.scrollY);
     // .appendChild(card.object);
 });
 

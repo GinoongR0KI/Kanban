@@ -71,36 +71,69 @@ header {
 }
 
 .card {
-    display: block;
+    display: flex;
+    align-items: start; justify-content: center;
+
     width: clamp(100px, 256px, 256px);
     color:white;
+    /* background-color: rgb(71, 33, 33); */
     margin: var(--margin-default);
 
     transition-duration: 0.2s;
+
+    position: relative;
 }
 
-.card:is(.created) {
+.card-wrapper {
+    background-color: gray;
+    
+    display: flex;
+    flex-direction: column;
+    min-height: 256px;
+}
+
+.card-wrapper:is(.created) {
     background: rgb(4, 255, 0);
     filter: drop-shadow(0px 0px 16px rgb(53, 173, 51));
     animation-name: created;
     animation-duration: 0.2s;
+
+    width: 256px;
 }
 
 @keyframes created {
-    from {width:0px;}
-    to {width:256px;}
+    from {transform: scale(0);}
+    to {transform: scale(1);}
 }
 
-.card:is(.deleted) {
+.card-wrapper:is(.deleted) {
     background: rgb(255, 0, 0);
     filter: drop-shadow(0px 0px 16px rgba(236, 19, 19, 1));
     animation-name: deleted;
     animation-duration: 0.5s;
+
+    width: 256px;
+
+    position:relative;
+    z-index: 101;
 }
 
 @keyframes deleted {
-    from {}
-    to {width:0px;}
+    /* from {
+        background: rgb(255, 0, 0);
+        filter: drop-shadow(0px 0px 16px rgba(236, 19, 19, 1));
+    }
+    to {width:0px;} */
+    from {
+        transform: scale(1) rotate(0);
+        background: rgb(255, 0, 0);
+        filter: drop-shadow(0px 0px 16px rgba(236, 19, 19, 1));
+    }
+    to {
+        transform: scale(0) rotate(90deg);
+        background: rgb(255, 0, 0);
+        filter: drop-shadow(0px 0px 16px rgba(236, 19, 19, 1));
+    }
 }
 
 .card-header {
@@ -109,8 +142,18 @@ header {
     background-color: lightblue;
     padding:var(--padding-default);
 
+    flex-wrap: wrap;
+
     animation-name: spawn;
     animation-duration: 1s;
+
+    position: relative;
+}
+
+.card-title {
+    text-wrap: wrap;
+    /* overflow-wrap: break-word; */
+    word-break: break-all;
 }
 
 :is([data-roki-card-title]) .card-body  {
@@ -180,7 +223,9 @@ header {
 #btn_addCard {
     border: 1px dashed black; border-radius: 25px;
     padding: var(--padding-default); margin: var(--margin-default);
+    
     /* align-self: start; */
+    height:50%;
 }
 
 /* Modals */
