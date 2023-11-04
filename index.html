@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <?php // Meta ?> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Generic Kanban</title>
+
+    <!-- <?php // Styles ?> -->
+    <link rel="shortcut icon" href="" type="image/x-icon" /> <!--<?php // Site Logo ?> -->
+    <link rel="stylesheet" href="./styles/index.css" /> <!--<?php // Main Cross-Page style ?>-->
+    <link rel="stylesheet" href="./styles/kanban.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <!-- <?php // Scripts ?> -->
+    <script src="https://kit.fontawesome.com/2a10a7ed51.js" crossorigin="anonymous"></script> <!--<?php // Font Awesome ?>-->
+</head>
+
+<body>
+    <div class="modal-container">
+        <div class="modal" id="card-information">
+            <div class="modal-header">
+                <h1>Card Details</h1>
+                <button class="button"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p id="card-text-information">
+                    Lorem Ipsum
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+
+        <header id="Project-Controls">
+            <div class="project-details-container">
+                <h1 id="project-title">Project Title</h1>
+                <button class="button"><i class="fa-regular fa-pen-to-square"></i></button>
+            </div>
+            <div class="cta-container">
+                <button class="button cta"><i class="fa-solid fa-door-open"></i>&nbsp;Back</button>
+                <button class="button cta"><i class="fa-solid fa-floppy-disk"></i>&nbsp;Save / Publish</button>
+            </div>
+        </header>
+
+        <section class="card-container">
+            <button class="button" id="btn_addCard"><i class="fa-solid fa-circle-plus"></i></button>
+        </section>
+
+        <footer>
+            <div class="copyright">
+                All rights reserved 2023.
+            </div>
+            <div class="developer">
+                This web application is developed by: <a href="https://ginoongr0ki.github.io/">GinoongR0KI</a>
+            </div>
+        </footer>
+    </div>
+
+    <script type="module" src="scripts/index.js"></script>
+</body>
+
+</html>
