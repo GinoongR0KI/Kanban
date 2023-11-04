@@ -1,6 +1,6 @@
 // Use this file for initialization of multiple scripts
 
-import { Card } from "../blocks/Card";
+import { Card } from "../blocks/Card.js";
 
 let btn_addCard = document.querySelector("#btn_addCard");
 
