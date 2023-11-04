@@ -1,5 +1,5 @@
-import { CardHeader } from "./CardHeader";
-import { CardBody } from "./CardBody";
+import { CardHeader } from "./CardHeader.js";
+import { CardBody } from "./CardBody.js";
 
 export class Card {
     // Attributes

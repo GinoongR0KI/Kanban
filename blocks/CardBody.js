@@ -1,4 +1,4 @@
-import { CardItem } from "./CardItem";
+import { CardItem } from "./CardItem.js";
 
 export class CardBody {
     object;
